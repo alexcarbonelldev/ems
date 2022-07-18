@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Ems</string>
+    <string name="loading">Loading…</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="detail">Detail</string>
+
+    <string name="quasar_energy">Quasar energy</string>
+    <string name="grid_energy">Grid energy</string>
+    <string name="solar_panel_energy">Solar panels energy</string>
+    <string name="statistics_data">Statistics data</string>
+    <string name="live_data">Live data</string>
+    <string name="charged">Charged</string>
+    <string name="discharged">Discharged</string>
+    <string name="quasar_info">Quasar info</string>
+    <string name="error_occurred">An error has occurred, please try again</string>
+    <string name="retry">Retry</string>
+    <string name="value_with_kwh">%1$s kWh</string>
+    <string name="solar_power_with_value">Solar power: %1$s</string>
+    <string name="quasar_power_with_value">Quasar power: %1$s</string>
+    <string name="grid_power_with_value">Grid power: %1$s</string>
+    <string name="building_demand_with_value">Building demand: %1$s</string>
+</resources>
