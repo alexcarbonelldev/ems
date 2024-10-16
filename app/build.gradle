@@ -3,9 +3,16 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'kotlin-android'
 }
 
 android {
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
+
     namespace = "com.ems.ems"
 
     compileSdk 34
@@ -69,9 +76,20 @@ dependencies {
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.activity:activity-compose:$activity_compose_version"
     implementation "androidx.navigation:navigation-compose:$compose_nav_version"
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.0")
+    testImplementation("io.mockk:mockk:1.13.9")
+
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation("org.junit.platform:junit-platform-suite:1.8.0-RC1")
+    testImplementation("androidx.arch.core:core-testing:2.2.0") // or latest version
+
 }
 
 kapt {
