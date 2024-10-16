@@ -4,7 +4,7 @@ import androidx.lifecycle.viewModelScope
 import com.ems.domain.common.DispatcherProvider
 import com.ems.domain.common.Either
 import com.ems.domain.common.error.ErrorType
-import com.ems.domain.session.model.SessionInfoModel
+import com.ems.domain.session.model.SessionInfo
 import com.ems.domain.session.usecase.GetSessionInfoUseCase
 import com.ems.ems.ui.common.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -53,7 +53,7 @@ class DashboardViewModel @Inject constructor(
         }
     }
 
-    private fun handleSessionInfoSuccess(sessionInfo: SessionInfoModel) {
+    private fun handleSessionInfoSuccess(sessionInfo: SessionInfo) {
         updateState(
             viewState.value.copy(
                 loading = false,
@@ -65,7 +65,7 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private fun mapSessionInfoToStatisticsInfoViewState(dashboardInfo: SessionInfoModel): StatisticsInfoViewState {
+    private fun mapSessionInfoToStatisticsInfoViewState(dashboardInfo: SessionInfo): StatisticsInfoViewState {
         return StatisticsInfoViewState(
             solarPowerPercentage = dashboardInfo.statisticsInfo.solarPowerPercentage,
             quasarsPowerPercentage = dashboardInfo.statisticsInfo.quasarsPowerPercentage,
@@ -73,7 +73,7 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private fun mapSessionInfoToLiveInfoViewState(dashboardInfo: SessionInfoModel): LiveInfoViewState {
+    private fun mapSessionInfoToLiveInfoViewState(dashboardInfo: SessionInfo): LiveInfoViewState {
         return LiveInfoViewState(
             solarPower = dashboardInfo.liveInfo.solarPower,
             quasarsPower = dashboardInfo.liveInfo.quasarsPower,

@@ -1,13 +1,13 @@
 package com.ems.data.session.repository.mapper
 
-import com.ems.data.session.repository.model.HistoricalItemDataModel
-import com.ems.domain.session.model.HistoricalItemModel
+import com.ems.data.session.repository.model.HistoricalItemData
+import com.ems.domain.session.model.HistoricalInfoItem
 import javax.inject.Inject
 
-class HistoricalItemDataModelMapper @Inject constructor() {
+class HistoricalItemDataMapper @Inject constructor() {
 
-    fun toDomain(unmapped: HistoricalItemDataModel): HistoricalItemModel {
-        return HistoricalItemModel(
+    fun toDomain(unmapped: HistoricalItemData): HistoricalInfoItem {
+        return HistoricalInfoItem(
             buildingActivePower = unmapped.buildingActivePower,
             gridActivePower = unmapped.gridActivePower,
             solarPanelActivePower = unmapped.solarPanelActivePower,

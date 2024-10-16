@@ -26,6 +26,6 @@ abstract class BaseViewModel<VS : ViewState, VE : ViewEffect, VI : ViewIntent>(i
     }
 
     fun onEffectConsumed(effect: VE) {
-        _viewEffects.value = _viewEffects.value - effect
+        _viewEffects.value -= effect
     }
 }

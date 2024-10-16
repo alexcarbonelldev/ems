@@ -4,7 +4,7 @@ import androidx.lifecycle.viewModelScope
 import com.ems.domain.common.DispatcherProvider
 import com.ems.domain.common.Either
 import com.ems.domain.common.error.ErrorType
-import com.ems.domain.session.model.HistoricalItemModel
+import com.ems.domain.session.model.HistoricalInfoItem
 import com.ems.domain.session.usecase.GetSessionHistoricalInfoUseCase
 import com.ems.ems.ui.common.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -46,7 +46,7 @@ class DetailViewModel @Inject constructor(
         }
     }
 
-    private fun handleHistoricalInfoSuccess(historicalInfoList: List<HistoricalItemModel>) {
+    private fun handleHistoricalInfoSuccess(historicalInfoList: List<HistoricalInfoItem>) {
         updateState(
             viewState.value.copy(
                 loading = false,

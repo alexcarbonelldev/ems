@@ -1,11 +1,11 @@
 package com.ems.data.session.datasource.network
 
-import com.ems.data.session.repository.model.HistoricalItemDataModel
-import com.ems.data.session.repository.model.LiveInfoDataModel
+import com.ems.data.session.repository.model.HistoricalItemData
+import com.ems.data.session.repository.model.LiveInfoData
 
 interface SessionRemoteDataSource {
 
-    suspend fun getHistoricalInfo(): List<HistoricalItemDataModel>
+    suspend fun getHistoricalInfo(): List<HistoricalItemData>
 
-    suspend fun getLiveInfo(): LiveInfoDataModel
+    suspend fun getLiveInfo(): LiveInfoData
 }

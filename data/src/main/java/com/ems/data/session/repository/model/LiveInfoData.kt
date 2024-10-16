@@ -1,6 +1,6 @@
 package com.ems.data.session.repository.model
 
-data class LiveInfoDataModel(
+data class LiveInfoData(
     val solarPower: Double,
     val quasarsPower: Double,
     val gridPower: Double,

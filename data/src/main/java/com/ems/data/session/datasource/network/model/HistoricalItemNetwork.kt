@@ -2,7 +2,7 @@ package com.ems.data.session.datasource.network.model
 
 import com.google.gson.annotations.SerializedName
 
-data class HistoricalItemNetworkModel(
+data class HistoricalItemNetwork(
     @SerializedName("building_active_power")
     val buildingActivePower: Double,
     @SerializedName("grid_active_power")

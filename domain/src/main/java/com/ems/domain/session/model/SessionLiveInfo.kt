@@ -1,6 +1,6 @@
 package com.ems.domain.session.model
 
-data class SessionLiveInfoModel(
+data class SessionLiveInfo(
     val solarPower: Double,
     val quasarsPower: Double,
     val gridPower: Double,

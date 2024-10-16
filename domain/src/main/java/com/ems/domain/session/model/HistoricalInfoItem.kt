@@ -1,8 +1,8 @@
-package com.ems.data.session.repository.model
+package com.ems.domain.session.model
 
 import java.util.*
 
-data class HistoricalItemDataModel(
+data class HistoricalInfoItem(
     val buildingActivePower: Double,
     val gridActivePower: Double,
     val solarPanelActivePower: Double,

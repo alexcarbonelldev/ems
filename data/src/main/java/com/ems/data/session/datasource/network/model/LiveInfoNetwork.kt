@@ -2,7 +2,7 @@ package com.ems.data.session.datasource.network.model
 
 import com.google.gson.annotations.SerializedName
 
-data class LiveInfoNetworkModel(
+data class LiveInfoNetwork(
     @SerializedName("solar_power")
     val solarPower: Double,
     @SerializedName("quasars_power")

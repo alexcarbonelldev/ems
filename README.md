@@ -1,5 +1,5 @@
 # EMS
-Energy Management System by Wallbox
+Energy Management System
 
 ## Stack
 - Clean architecture

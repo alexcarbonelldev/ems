@@ -1,28 +1,28 @@
 package com.ems.data.session.repository
 
 import com.ems.data.session.datasource.network.SessionRemoteDataSource
-import com.ems.data.session.repository.mapper.HistoricalItemDataModelMapper
-import com.ems.data.session.repository.mapper.LiveInfoDataModelMapper
-import com.ems.domain.session.model.HistoricalItemModel
-import com.ems.domain.session.model.LiveInfoModel
+import com.ems.data.session.repository.mapper.HistoricalItemDataMapper
+import com.ems.data.session.repository.mapper.LiveInfoDataMapper
+import com.ems.domain.session.model.HistoricalInfoItem
+import com.ems.domain.session.model.LiveInfo
 import com.ems.domain.session.repository.SessionRepository
 import javax.inject.Inject
 
 class SessionRepositoryImpl @Inject constructor(
     private val energyNetworkDataSource: SessionRemoteDataSource,
-    private val historicalItemDataModelMapper: HistoricalItemDataModelMapper,
-    private val liveInfoDataModelMapper: LiveInfoDataModelMapper
+    private val historicalItemDataMapper: HistoricalItemDataMapper,
+    private val liveInfoDataMapper: LiveInfoDataMapper
 ) : SessionRepository {
 
-    override suspend fun getHistoricalInfo(): List<HistoricalItemModel> {
+    override suspend fun getHistoricalInfo(): List<HistoricalInfoItem> {
         return energyNetworkDataSource.getHistoricalInfo().map { historicalInfo ->
-            historicalItemDataModelMapper.toDomain(historicalInfo)
+            historicalItemDataMapper.toDomain(historicalInfo)
         }
     }
 
-    override suspend fun getLiveInfo(): LiveInfoModel {
+    override suspend fun getLiveInfo(): LiveInfo {
         return energyNetworkDataSource.getLiveInfo().let { liveInfo ->
-            liveInfoDataModelMapper.toDomain(liveInfo)
+            liveInfoDataMapper.toDomain(liveInfo)
         }
     }
 }

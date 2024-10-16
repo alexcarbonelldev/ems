@@ -1,13 +1,13 @@
 package com.ems.data.session.repository.mapper
 
-import com.ems.data.session.repository.model.LiveInfoDataModel
-import com.ems.domain.session.model.LiveInfoModel
+import com.ems.data.session.repository.model.LiveInfoData
+import com.ems.domain.session.model.LiveInfo
 import javax.inject.Inject
 
-class LiveInfoDataModelMapper @Inject constructor() {
+class LiveInfoDataMapper @Inject constructor() {
 
-    fun toDomain(unmapped: LiveInfoDataModel): LiveInfoModel {
-        return LiveInfoModel(
+    fun toDomain(unmapped: LiveInfoData): LiveInfo {
+        return LiveInfo(
             solarPower = unmapped.solarPower,
             quasarsPower = unmapped.quasarsPower,
             gridPower = unmapped.gridPower,

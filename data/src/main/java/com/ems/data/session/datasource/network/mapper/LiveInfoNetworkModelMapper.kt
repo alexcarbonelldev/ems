@@ -1,13 +1,13 @@
 package com.ems.data.session.datasource.network.mapper
 
-import com.ems.data.session.datasource.network.model.LiveInfoNetworkModel
-import com.ems.data.session.repository.model.LiveInfoDataModel
+import com.ems.data.session.datasource.network.model.LiveInfoNetwork
+import com.ems.data.session.repository.model.LiveInfoData
 import javax.inject.Inject
 
 class LiveInfoNetworkModelMapper @Inject constructor() {
 
-    fun toData(unmapped: LiveInfoNetworkModel): LiveInfoDataModel {
-        return LiveInfoDataModel(
+    fun toData(unmapped: LiveInfoNetwork): LiveInfoData {
+        return LiveInfoData(
             solarPower = unmapped.solarPower,
             quasarsPower = unmapped.quasarsPower,
             gridPower = unmapped.gridPower,
