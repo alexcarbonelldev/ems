@@ -1,4 +1,4 @@
-# EMS
+# EMS Playground
 Energy Management System
 
 ## Stack
@@ -15,3 +15,8 @@ Energy Management System
 ## Screenshots
 ![dashboard](screenshot/dashboard.PNG)
 ![detail](screenshot/detail.PNG)
+
+## Pending
+- [ ] Update dependencies
+- [ ] Implement version catalog
+- [ ] Implement Screenshot tests
