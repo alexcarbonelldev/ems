@@ -75,16 +75,15 @@ private fun DashboardScreen(
                 .padding(paddingValues)
                 .fillMaxSize()
         ) {
-            when {
-                state.loading -> LoadingComponent()
-                state.error -> ErrorComponent() { onRetryClick() }
-                else -> {
+            when (state) {
+                DashboardViewState.Loading -> LoadingComponent()
+                DashboardViewState.Error -> ErrorComponent() { onRetryClick() }
+                is DashboardViewState.Data ->
                     Column(modifier = Modifier.padding(16.dp)) {
                         QuasarInfo(state.chargedEnergyWithQuasar, state.dischargedEnergyFromQuasar)
                         LiveInfo(state.liveInfoViewState)
                         StatisticsInfo(state.statisticsInfoViewState, { onStatisticsClick() })
                     }
-                }
             }
         }
     }
@@ -94,8 +93,16 @@ private fun DashboardScreen(
 private fun QuasarInfo(chargedEnergy: Double, dischargedEnergy: Double, modifier: Modifier = Modifier) {
     Widget(title = stringResource(R.string.quasar_info), modifier = modifier) {
         Row() {
-            QuasarInfoItem(text = stringResource(R.string.charged), energy = chargedEnergy, modifier = Modifier.weight(1f))
-            QuasarInfoItem(text = stringResource(R.string.discharged), energy = dischargedEnergy, modifier = Modifier.weight(1f))
+            QuasarInfoItem(
+                text = stringResource(R.string.charged),
+                energy = chargedEnergy,
+                modifier = Modifier.weight(1f)
+            )
+            QuasarInfoItem(
+                text = stringResource(R.string.discharged),
+                energy = dischargedEnergy,
+                modifier = Modifier.weight(1f)
+            )
         }
     }
 }
@@ -126,10 +133,16 @@ private fun LiveInfo(liveInfoViewState: LiveInfoViewState, modifier: Modifier = 
                 text = stringResource(R.string.grid_power_with_value, liveInfoViewState.gridPower.roundTo2Decimals())
             )
             WidgetItem(
-                text = stringResource(R.string.quasar_power_with_value, liveInfoViewState.quasarsPower.roundTo2Decimals())
+                text = stringResource(
+                    R.string.quasar_power_with_value,
+                    liveInfoViewState.quasarsPower.roundTo2Decimals()
+                )
             )
             WidgetItem(
-                text = stringResource(R.string.building_demand_with_value, liveInfoViewState.buildingDemand.roundTo2Decimals())
+                text = stringResource(
+                    R.string.building_demand_with_value,
+                    liveInfoViewState.buildingDemand.roundTo2Decimals()
+                )
             )
         }
     }
@@ -213,9 +226,7 @@ private fun WidgetItem(
 private fun DefaultPreview() {
     EmsTheme {
         DashboardScreen(
-            DashboardViewState(
-                loading = false,
-                error = false,
+            DashboardViewState.Data(
                 dischargedEnergyFromQuasar = 37.12,
                 chargedEnergyWithQuasar = 54.12,
                 liveInfoViewState = LiveInfoViewState(),

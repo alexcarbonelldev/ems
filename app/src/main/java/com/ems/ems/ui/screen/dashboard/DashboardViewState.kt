@@ -3,15 +3,19 @@ package com.ems.ems.ui.screen.dashboard
 import androidx.compose.runtime.Immutable
 import com.ems.ems.ui.common.base.ViewState
 
-@Immutable
-data class DashboardViewState(
-    val loading: Boolean = true,
-    val error: Boolean = false,
-    val dischargedEnergyFromQuasar: Double = 0.0,
-    val chargedEnergyWithQuasar: Double = 0.0,
-    val liveInfoViewState: LiveInfoViewState = LiveInfoViewState(),
-    val statisticsInfoViewState: StatisticsInfoViewState = StatisticsInfoViewState()
-) : ViewState
+
+sealed interface DashboardViewState : ViewState {
+    object Loading : DashboardViewState
+    object Error : DashboardViewState
+
+    @Immutable
+    data class Data(
+        val dischargedEnergyFromQuasar: Double = 0.0,
+        val chargedEnergyWithQuasar: Double = 0.0,
+        val liveInfoViewState: LiveInfoViewState = LiveInfoViewState(),
+        val statisticsInfoViewState: StatisticsInfoViewState = StatisticsInfoViewState()
+    ) : DashboardViewState
+}
 
 @Immutable
 data class LiveInfoViewState(

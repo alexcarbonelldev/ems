@@ -2,14 +2,17 @@ package com.ems.ems.ui.screen.detail
 
 import androidx.compose.runtime.Immutable
 import com.ems.ems.ui.common.base.ViewState
-import java.util.*
+import java.util.Date
 
-@Immutable
-data class DetailViewState(
-    val loading: Boolean = true,
-    val error: Boolean = false,
-    val chartValues: List<ChartValue> = emptyList()
-) : ViewState
+sealed interface DetailViewState : ViewState {
+    object Loading : DetailViewState
+    object Error : DetailViewState
+
+    @Immutable
+    data class Data(
+        val chartValues: List<ChartValue> = emptyList()
+    ) : DetailViewState
+}
 
 @Immutable
 data class ChartValue(

@@ -37,9 +37,11 @@ import com.ems.ems.ui.component.ErrorComponent
 import com.ems.ems.ui.component.LoadingComponent
 import com.ems.ems.ui.component.TopBar
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
 import java.util.Collections.max
 import java.util.Collections.min
+import java.util.Date
+import java.util.Locale
 import java.util.concurrent.TimeUnit
 import kotlin.math.absoluteValue
 
@@ -88,14 +90,12 @@ private fun DetailScreen(
         }
     ) { paddingValues ->
         Surface(modifier = Modifier.padding(paddingValues)) {
-            when {
-                state.loading -> LoadingComponent()
-                state.error -> ErrorComponent() { onRetryClick() }
-                else -> {
-                    Column {
-                        Chart(state.chartValues)
-                        ChartLegend()
-                    }
+            when (state) {
+                DetailViewState.Loading -> LoadingComponent()
+                DetailViewState.Error -> ErrorComponent { onRetryClick() }
+                is DetailViewState.Data -> Column {
+                    Chart(state.chartValues)
+                    ChartLegend()
                 }
             }
         }
@@ -148,8 +148,24 @@ private fun Chart(
 
             chartValues.forEach { chartValue ->
                 gridPoints.add(getPoint(roundedRangeValue, chartValue.gridValue, roundedMinValue, currentX, xDistance))
-                quasarPoints.add(getPoint(roundedRangeValue, chartValue.quasarValue, roundedMinValue, currentX, xDistance))
-                solarPanelPoints.add(getPoint(roundedRangeValue, chartValue.solarPanelValue, roundedMinValue, currentX, xDistance))
+                quasarPoints.add(
+                    getPoint(
+                        roundedRangeValue,
+                        chartValue.quasarValue,
+                        roundedMinValue,
+                        currentX,
+                        xDistance
+                    )
+                )
+                solarPanelPoints.add(
+                    getPoint(
+                        roundedRangeValue,
+                        chartValue.solarPanelValue,
+                        roundedMinValue,
+                        currentX,
+                        xDistance
+                    )
+                )
 
                 calendar.time = chartValue.date
                 val hour = calendar[Calendar.HOUR_OF_DAY]
