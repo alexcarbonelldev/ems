@@ -5,8 +5,8 @@ import com.ems.ems.ui.common.base.ViewState
 
 
 sealed interface DashboardViewState : ViewState {
-    object Loading : DashboardViewState
-    object Error : DashboardViewState
+    data object Loading : DashboardViewState
+    data object Error : DashboardViewState
 
     @Immutable
     data class Data(

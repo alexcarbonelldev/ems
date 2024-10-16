@@ -4,6 +4,6 @@ import com.ems.ems.ui.common.base.ViewIntent
 
 sealed class DetailViewIntent : ViewIntent {
 
-    object OnBackClick : DetailViewIntent()
-    object OnRetryClick : DetailViewIntent()
+    data object OnBackClick : DetailViewIntent()
+    data object OnRetryClick : DetailViewIntent()
 }

@@ -4,5 +4,5 @@ import com.ems.ems.ui.common.base.ViewEffect
 
 sealed class DashboardViewEffect : ViewEffect {
 
-    object NavigateToDetail : DashboardViewEffect()
+    data object NavigateToDetail : DashboardViewEffect()
 }

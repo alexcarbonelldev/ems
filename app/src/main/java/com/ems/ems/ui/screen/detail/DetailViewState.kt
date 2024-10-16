@@ -5,8 +5,8 @@ import com.ems.ems.ui.common.base.ViewState
 import java.util.Date
 
 sealed interface DetailViewState : ViewState {
-    object Loading : DetailViewState
-    object Error : DetailViewState
+    data object Loading : DetailViewState
+    data object Error : DetailViewState
 
     @Immutable
     data class Data(

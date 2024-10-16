@@ -4,5 +4,5 @@ import com.ems.ems.ui.common.base.ViewEffect
 
 sealed class DetailViewEffect : ViewEffect {
 
-    object NavigateBack : DetailViewEffect()
+    data object NavigateBack : DetailViewEffect()
 }

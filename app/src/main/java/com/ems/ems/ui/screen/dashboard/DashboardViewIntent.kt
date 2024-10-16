@@ -4,6 +4,6 @@ import com.ems.ems.ui.common.base.ViewIntent
 
 sealed class DashboardViewIntent : ViewIntent {
 
-    object OnStatisticsClick : DashboardViewIntent()
-    object OnRetryClick : DashboardViewIntent()
+    data object OnStatisticsClick : DashboardViewIntent()
+    data object OnRetryClick : DashboardViewIntent()
 }
