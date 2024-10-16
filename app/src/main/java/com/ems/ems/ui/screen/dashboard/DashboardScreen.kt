@@ -11,7 +11,6 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,6 +25,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.ems.ems.R
 import com.ems.ems.ui.common.NavDestination
+import com.ems.ems.ui.common.base.ViewEffectObserver
 import com.ems.ems.ui.common.extension.formatToPercentage
 import com.ems.ems.ui.common.extension.roundTo2Decimals
 import com.ems.ems.ui.component.ErrorComponent
@@ -38,20 +38,13 @@ fun DashboardScreen(
     navController: NavController,
     viewModel: DashboardViewModel = hiltViewModel()
 ) {
-    val state by viewModel.viewState.collectAsStateWithLifecycle()
-
-    LaunchedEffect(Unit) {
-        viewModel.viewEffects.collect { effects ->
-            if (effects.isEmpty()) return@collect
-
-            val effect = effects.first()
-            when (effect) {
-                DashboardViewEffect.NavigateToDetail -> navController.navigate(NavDestination.DetailScreen.route)
-            }
-            viewModel.onEffectConsumed(effect)
+    viewModel.ViewEffectObserver { effect ->
+        when (effect) {
+            DashboardViewEffect.NavigateToDetail -> navController.navigate(NavDestination.DetailScreen.route)
         }
     }
 
+    val state by viewModel.viewState.collectAsStateWithLifecycle()
     DashboardScreen(
         state = state,
         onStatisticsClick = { viewModel.onViewIntent(DashboardViewIntent.OnStatisticsClick) },

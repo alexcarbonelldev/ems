@@ -15,7 +15,6 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,6 +31,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.ems.domain.common.extension.roundTo
 import com.ems.ems.R
+import com.ems.ems.ui.common.base.ViewEffectObserver
 import com.ems.ems.ui.common.extension.drawText
 import com.ems.ems.ui.component.ErrorComponent
 import com.ems.ems.ui.component.LoadingComponent
@@ -57,20 +57,13 @@ fun DetailScreen(
     navController: NavController,
     viewModel: DetailViewModel = hiltViewModel()
 ) {
-    val state by viewModel.viewState.collectAsStateWithLifecycle()
-
-    LaunchedEffect(Unit) {
-        viewModel.viewEffects.collect { effects ->
-            if (effects.isEmpty()) return@collect
-
-            val effect = effects.first()
-            when (effect) {
-                DetailViewEffect.NavigateBack -> navController.navigateUp()
-            }
-            viewModel.onEffectConsumed(effect)
+    viewModel.ViewEffectObserver { effect ->
+        when (effect) {
+            DetailViewEffect.NavigateBack -> navController.navigateUp()
         }
     }
 
+    val state by viewModel.viewState.collectAsStateWithLifecycle()
     DetailScreen(
         state = state,
         onBackClick = { viewModel.onViewIntent(DetailViewIntent.OnBackClick) },
