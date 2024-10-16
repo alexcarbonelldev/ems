@@ -1,4 +1,4 @@
-package com.ems.ems.di
+package com.ems.data.di
 
 import com.ems.data.session.datasource.network.SessionApiDataSource
 import com.ems.data.session.datasource.network.SessionRemoteDataSource
