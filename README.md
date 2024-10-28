@@ -18,6 +18,5 @@ Energy Management System
 
 ## Pending
 - [ ] Add data layer tests
-- [ ] Update dependencies
 - [ ] Implement version catalog
 - [ ] Implement Screenshot tests

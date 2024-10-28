@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-android'
+    id("org.jetbrains.kotlin.plugin.compose") version '2.0.0'
 }
 
 android {
@@ -20,7 +21,7 @@ android {
     defaultConfig {
         applicationId "com.ems.ems"
         minSdk 21
-        targetSdk 34
+        targetSdk 35
         versionCode 1
         versionName "1.0"
 
@@ -47,7 +48,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion kotlin_version
     }
     packagingOptions {
         resources {
