@@ -4,8 +4,8 @@ import com.ems.domain.common.Either
 import com.ems.domain.common.error.ErrorType
 import com.ems.domain.session.model.HistoricalInfoItem
 import com.ems.domain.session.usecase.GetSessionHistoricalInfoUseCase
-import com.ems.ems.utils.MainDispatcherRule
-import com.ems.ems.utils.getDispatcherProvider
+import com.ems.test.MainDispatcherRule
+import com.ems.test.getDispatcherProvider
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -36,7 +36,7 @@ class DetailViewModelTest {
 
     @BeforeEach
     fun setUp() {
-        MockKAnnotations.init(this, relaxed = true)
+        MockKAnnotations.init(this, relaxUnitFun = true)
     }
 
     @Test
@@ -48,7 +48,6 @@ class DetailViewModelTest {
         coVerify(exactly = 1) { getSessionHistoricalInfoUseCase() }
         assertEquals(DetailViewState.Error, viewModel.viewState.value)
     }
-
 
     @Test
     fun `GIVEN getSessionInfoUseCase returns success WHEN vm is initialized THEN viewState is data`() = runTest {

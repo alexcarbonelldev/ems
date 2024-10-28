@@ -1,4 +1,4 @@
-package com.ems.domain.common
+package com.ems.coroutines
 
 import kotlinx.coroutines.CoroutineDispatcher
 

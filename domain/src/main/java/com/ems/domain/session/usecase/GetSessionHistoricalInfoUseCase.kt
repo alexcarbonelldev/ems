@@ -1,6 +1,6 @@
 package com.ems.domain.session.usecase
 
-import com.ems.domain.common.DispatcherProvider
+import com.ems.coroutines.DispatcherProvider
 import com.ems.domain.common.Either
 import com.ems.domain.common.base.BaseUseCase
 import com.ems.domain.session.model.HistoricalInfoItem

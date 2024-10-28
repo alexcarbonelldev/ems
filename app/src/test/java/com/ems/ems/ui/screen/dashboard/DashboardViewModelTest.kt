@@ -7,8 +7,8 @@ import com.ems.domain.session.model.SessionLiveInfo
 import com.ems.domain.session.model.SessionQuasarInfo
 import com.ems.domain.session.model.SessionStatisticsInfo
 import com.ems.domain.session.usecase.GetSessionInfoUseCase
-import com.ems.ems.utils.MainDispatcherRule
-import com.ems.ems.utils.getDispatcherProvider
+import com.ems.test.MainDispatcherRule
+import com.ems.test.getDispatcherProvider
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -38,7 +38,7 @@ class DashboardViewModelTest {
 
     @BeforeEach
     fun setUp() {
-        MockKAnnotations.init(this, relaxed = true)
+        MockKAnnotations.init(this, relaxUnitFun = true)
     }
 
     @Test

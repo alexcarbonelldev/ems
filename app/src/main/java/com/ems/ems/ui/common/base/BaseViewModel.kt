@@ -1,7 +1,7 @@
 package com.ems.ems.ui.common.base
 
 import androidx.lifecycle.ViewModel
-import com.ems.domain.common.DispatcherProvider
+import com.ems.coroutines.DispatcherProvider
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 

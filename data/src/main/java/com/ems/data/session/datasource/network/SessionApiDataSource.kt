@@ -1,5 +1,6 @@
 package com.ems.data.session.datasource.network
 
+import com.ems.coroutines.DispatcherProvider
 import com.ems.data.session.common.error.ApiErrorHandler
 import com.ems.data.session.datasource.network.mapper.HistoricalItemNetworkMapper
 import com.ems.data.session.datasource.network.mapper.LiveInfoNetworkModelMapper
@@ -7,7 +8,6 @@ import com.ems.data.session.datasource.network.model.HistoricalItemNetwork
 import com.ems.data.session.datasource.network.model.LiveInfoNetwork
 import com.ems.data.session.repository.model.HistoricalItemData
 import com.ems.data.session.repository.model.LiveInfoData
-import com.ems.domain.common.DispatcherProvider
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.delay

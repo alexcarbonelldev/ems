@@ -1,6 +1,6 @@
 package com.ems.ems.di
 
-import com.ems.domain.common.DispatcherProvider
+import com.ems.coroutines.DispatcherProvider
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

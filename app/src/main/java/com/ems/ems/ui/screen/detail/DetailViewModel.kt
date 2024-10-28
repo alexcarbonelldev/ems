@@ -1,7 +1,7 @@
 package com.ems.ems.ui.screen.detail
 
 import androidx.lifecycle.viewModelScope
-import com.ems.domain.common.DispatcherProvider
+import com.ems.coroutines.DispatcherProvider
 import com.ems.domain.common.Either
 import com.ems.domain.session.model.HistoricalInfoItem
 import com.ems.domain.session.usecase.GetSessionHistoricalInfoUseCase

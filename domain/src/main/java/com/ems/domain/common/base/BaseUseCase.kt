@@ -1,6 +1,6 @@
 package com.ems.domain.common.base
 
-import com.ems.domain.common.DispatcherProvider
+import com.ems.coroutines.DispatcherProvider
 import com.ems.domain.common.Either
 import com.ems.domain.common.error.ErrorType
 import com.ems.domain.common.error.HandledException

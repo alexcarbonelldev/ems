@@ -16,3 +16,7 @@ rootProject.name = "Ems"
 include ':app'
 include ':domain'
 include ':data'
+include ':utils'
+include ':coroutines'
+include ':common:coroutines'
+include ':common:test'

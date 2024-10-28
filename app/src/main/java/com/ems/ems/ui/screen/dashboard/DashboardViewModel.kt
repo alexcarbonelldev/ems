@@ -1,7 +1,7 @@
 package com.ems.ems.ui.screen.dashboard
 
 import androidx.lifecycle.viewModelScope
-import com.ems.domain.common.DispatcherProvider
+import com.ems.coroutines.DispatcherProvider
 import com.ems.domain.common.Either
 import com.ems.domain.session.model.SessionInfo
 import com.ems.domain.session.usecase.GetSessionInfoUseCase
